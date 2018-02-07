@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe NrelService do
-
   describe "stations" do
     it "finds stations by zip" do
       VCR.use_cassette("services/find_by_zip") do
