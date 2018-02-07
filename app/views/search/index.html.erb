@@ -1,0 +1,8 @@
+<% @stations.each do |station| %>
+  <ul><strong><%= station[:station_name] %></strong>
+    <li class="address"><%= station[:street_address] %>, <%= station[:city] %>, <%= station[:state] %> <%= station[:zip] %></li>
+    <li class="fuel_type"><%= station[:fuel_type_code] %></li>
+    <li class="distance"><%= station[:distance] %> miles</li>
+    <li class="access"><%= station[:access_days_time] %></li>
+  </ul>
+<% end %>
