@@ -1,12 +1,7 @@
 class Station < ActionController::Base
 
   def self.search_by_zip(zip_code)
-    @conn = Faraday.new(url: "https://developer.nrel.gov") do |faraday|
-      faraday.adapter Faraday.default_adapter
-    end
-
-    response = @conn.get("/api/alt-fuel-stations/v1/nearest.json?api_key=#{ENV['nrel_key']}&location=#{zip_code}&fuel_type=ELEC,LPG&limit=10")
-
-    @stations = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
+    NrelService.find_by_zip(zip_code)
   end
+  
 end
